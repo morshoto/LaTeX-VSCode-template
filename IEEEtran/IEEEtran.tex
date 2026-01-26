@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
+\interdisplaylinepenalty=2500
 \usepackage{mhchem}
 \usepackage{pgfplots}
 
@@ -20,12 +21,14 @@
         \small{Here is BIOGRAPHY}}
 \date{}
 
-\IEEEtitleabstractindextext{
+\IEEEtitleabstractindextext{%
 \begin{abstract}
   Here is abstract
 \end{abstract}}
   
 \maketitle
+\IEEEdisplaynontitleabstractindextext
+\IEEEpeerreviewmaketitle
 
 %###########################
 % Page
@@ -33,7 +36,7 @@
 \markboth{IEEE}
 \IEEEpubid{YourName}
 
-\section{Introduction}
+\IEEEraisesectionheading{\section{Introduction}}
 
 \IEEEPARstart{W}{elcome}
 
@@ -48,7 +51,7 @@ Here is the list element.
 \end{enumerate}
 
 \subsection{Example: Two Columns, Three Rows}
-\begin{table}[h]
+\begin{table}[!t]
   \renewcommand{\arraystretch}{1.2}
   \caption{Sample Table (2 Columns, 3 Rows)}
   \label{table:sample}
@@ -68,7 +71,7 @@ Here is the list element.
 
 \section{Figures}
 
-\begin{figure}[h!]
+\begin{figure}[!t]
   \centering
   \includegraphics[width=\linewidth, height=10.0em, keepaspectratio]{./img/p1.1.png}
   \caption{Graph on Question 1.4-g}
@@ -78,7 +81,7 @@ Here is the list element.
 \subsection{Plotting the Data}
 Below is an example of embedding data directly in a \verb|tikzpicture| environment:
 
-\begin{figure}[h]
+\begin{figure}[!t]
     \centering
     \begin{tikzpicture}
         \begin{axis}[
