@@ -1,65 +1,52 @@
 # LaTeX-VSCode-template
 
-Optimize your LaTeX environment with **VSCode** for seamless report and paper creation.
+Optimize your LaTeX environment with **VS Code** for seamless report and paper creation.
 
 ![demo.gif](src/demo.gif)
 
-## Installation
+## Quick Start
 
-> [!NOTE]
-> Make sure to have vscode as well.
+1. Install [Nix](https://nixos.org/download/) on your machine.
+2. Open this repository and enter the development shell:
 
 ```bash
-# For Windows
-install-tl-windows.exe
-# For Mac
-brew install mactex-no-gui --cask
-# For Linux
-sudo apt install texlive-full
+nix develop
 ```
 
-## VSCode Extension
+3. Open the folder in VS Code.
+4. Install the recommended extension when prompted.
+5. Open either `General/General.tex` or `IEEEtran/IEEEtran.tex` and build with LaTeX Workshop.
 
--   [ ] LaTeX Workshop
+The shell provides `latexmk`, `platex`, `dvipdfmx`, and `biber`, so the same build works on any device with Nix installed.
+Build artifacts are written to each template's `build/` directory.
 
-### Set up `.latexmkrc` file (Optional)
+## VS Code Setup
 
-The `.latexmkrc` file configures **latexmk**, an automatic build tool that streamlines the LaTeX compilation process.
+This repository recommends:
 
-```perl
-$latex = 'platex -synctex=1 -halt-on-error -file-line-error %O %S';
-$dvipdf = 'dvipdfmx %O -o %D %S';
-$pdf_mode = 3;
-$pvc_view_file_via_temporary = 0;
-$max_repeat = 5;
+- `LaTeX Workshop`
+
+If you want a command for managing the extension, use:
+
+```bash
+nix run .#setup
+nix run .#teardown
 ```
 
-## Registering snippet
+You can also check whether it is already installed:
 
-VSCode snippets allow quick insertion of LaTeX templates.
-
-```json
-{
-	"report": {
-		"prefix": "report",
-		"body": [
-			"\\documentclass[a4paper,11pt]{article}",
-			"\\usepackage{amsmath,graphicx}",
-			"\\begin{document}",
-			"\\title{${1:Title}}",
-			"\\author{${2:Author}}",
-			"\\date{${3:\\today}}",
-			"\\maketitle",
-			"$0",
-			"\\end{document}"
-		],
-		"description": "Basic LaTeX report template"
-	}
-}
+```bash
+nix run .#extension-status
 ```
 
-## Assign shortcut
+The workspace settings already point LaTeX Workshop at `latexmk`, and each template directory has its own `.latexmkrc` so the build stays local to the document being edited and does not overwrite the checked-in sample PDFs.
 
-Press **Ctrl + K → Ctrl + S** (Windows) or **⌘ + K → ⌘ + S** (Mac). In the search bar, type **"build with recipe"** and assign a shortcut.
+## Snippets
+
+VS Code snippets still work well for quick template insertion. Add your own snippet under your user or workspace snippet file if needed.
+
+## Legacy Manual Install
+
+If you do not want to use Nix, you can still install a full TeX distribution manually. The template was originally written with that workflow in mind, but `nix develop` is now the preferred path.
 
 ![keyboard-shotcut](./src/keyboard-shotcut.png)

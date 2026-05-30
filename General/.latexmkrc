@@ -1,0 +1,10 @@
+$pdf_mode = 3;
+$out_dir = 'build';
+$aux_dir = 'build';
+$latex = 'platex %O -synctex=1 -halt-on-error -file-line-error %S';
+$pdflatex = 'platex %O -synctex=1 -halt-on-error -file-line-error %S';
+$dvipdf = 'dvipdfmx %O -o %D %S';
+$bibtex = 'pbibtex %O %B';
+$biber = 'biber %O %B';
+$max_repeat = 5;
+$pvc_view_file_via_temporary = 0;
