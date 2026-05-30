@@ -50,6 +50,16 @@
             inherit (pkgs.texlive)
               scheme-basic
               latexmk
+
+              # Japanese pLaTeX / upLaTeX support
+              platex
+              ptex
+              uptex
+              uplatex
+              jsclasses
+              japanese-otf
+              collection-langjapanese
+
               amsfonts
               babel
               babel-english
@@ -67,6 +77,8 @@
               pgfplots
               url
               xcolor
+              zref
+              needspace
               epstopdf;
           };
         in
