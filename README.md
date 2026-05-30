@@ -20,6 +20,8 @@ nix develop
 The shell provides `latexmk`, `platex`, `dvipdfmx`, and `biber`, so the same build works on any device with Nix installed.
 Build artifacts are written to each template's `build/` directory.
 
+Detailed usage is documented in [docs/usage.md](/Users/shotomorisaki/Engineering/LaTeX-VSCode-template/docs/usage.md).
+
 ## VS Code Setup
 
 This repository recommends:
